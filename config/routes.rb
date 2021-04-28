@@ -1,3 +1,29 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :songs
+  root to: 'application#home'
+
+  # resources :bands
+  resources :genres
+  resources :musicians
+
+  namespace :api do
+    namespace :v1 do
+
+      # resources :bands
+      resources :genres
+      resources :musicians
+
+      # resources :bands do
+      #   resources :genres
+      #   resources : musicians
+      # end
+
+      resources :musicians do
+        resources :genres
+      end
+
+    end
+  end
+
 end
