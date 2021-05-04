@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       # end
 
       resources :musicians do
+        resources :songs
         resources :genres
       end
 
